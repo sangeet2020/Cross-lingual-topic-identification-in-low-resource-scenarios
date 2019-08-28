@@ -35,4 +35,4 @@ The objective is to develop systems for cross-lingual topic ID without relying o
 
 ## System block diagram
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/sangeet2020/Cross-lingual-topic-identification-in-low-resource-scenarios/blob/development/system_bloc_diagram.png)
