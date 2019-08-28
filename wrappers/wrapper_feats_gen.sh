@@ -20,8 +20,8 @@ analyzer=${7}   # Choice: char , word
 
 eng_mdf=1
 eng_mv=None
-root = /my/root/directory/cross_ling_topic_id/          # Edit this line with path of your root directory
-script = /my/root/directory/cross_ling_topic_id/src     # Edit this line with path of source code directory
+root=/my/root/directory/cross_ling_topic_id/          # Edit this line with path of your root directory
+script=/my/root/directory/cross_ling_topic_id/src     # Edit this line with path of source code directory
 
 specs=("full_set" "thm_reltd")
 

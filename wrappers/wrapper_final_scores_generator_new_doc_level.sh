@@ -8,8 +8,8 @@
 #         (v)     Predict topic
 #         (vi)    Compute averge precision scores
 
-root = /my/root/directory/cross_ling_topic_id/          # Edit this line with path of your root directory
-script = /my/root/directory/cross_ling_topic_id/src     # Edit this line with path of source code directory
+root=/my/root/directory/cross_ling_topic_id/          # Edit this line with path of your root directory
+script=/my/root/directory/cross_ling_topic_id/src     # Edit this line with path of source code directory
 
 if [ $# -ne 8 ] ; then
     echo "usage: $0 <il> <n> <ana> <mdf> <ng> <mv> <analyzer> <spec>"

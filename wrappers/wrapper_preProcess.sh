@@ -8,8 +8,8 @@
 #         (v)     Eliminate out-of-domain docs
 
 
-root = /my/root/directory/cross_ling_topic_id/          # Edit this line with path of your root directory
-script = /my/root/directory/cross_ling_topic_id/src     # Edit this line with path of source code directory
+root=/my/root/directory/cross_ling_topic_id/          # Edit this line with path of your root directory
+script=/my/root/directory/cross_ling_topic_id/src     # Edit this line with path of source code directory
 
 if [ $# -ne 7 ] ; then
     echo "usage: $0 <il> <ana> <mdf> <ng> <dataset_path> <ldc_dir>"
@@ -28,7 +28,7 @@ ldc_dir=${6}           # path to labeled English text jason file
 
 
 asr_out=("asr_1_out" "asr_2_out")
-analyzers=("char")
+analyzers=char
 
 
 for il in "${ils[@]}"; do
