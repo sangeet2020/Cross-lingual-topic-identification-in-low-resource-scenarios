@@ -5,7 +5,7 @@
 # e-mail : 15uec053[at]lnmiit[dot]ac[dot]in
 
 '''
-Perform regression between IL to english space.
+Perform regression (Ridge, Lasso, MultiTaskLasso) and save the best model. 
 '''
 
 import os
@@ -120,8 +120,6 @@ def main():
     model_selection = args.model_type
 
     # check file extension, if its h5, use get_ivectors_from_h5 from lorelei_utils.py
-    # if its mtx do whatever is below
-    # X_tar_para = get_ivectors_from_h5(args.il_feats)
     if os.path.basename(args.il_feats).split(".")[1] == 'h5':
         print('iVectors feats file loaded from '+ args.il_feats)
         X_tar_para = get_ivectors_from_h5(args.il_feats) # will return numpy array

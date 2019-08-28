@@ -1,32 +1,35 @@
+#!/bin/bash
 
+# Task performed:
+#         (i)     Generate ground truth annotations
+#         (ii)    Preparing ground truth of the annotations
+#         (iii)   Convert ASR outputs to text file and document id file
+#         (iv)    Analyze English labeled text data
+#         (v)     Eliminate out-of-domain docs
+
+
+root = /my/root/directory/cross_ling_topic_id/          # Edit this line with path of your root directory
+script = /my/root/directory/cross_ling_topic_id/src     # Edit this line with path of source code directory
+
+if [ $# -ne 7 ] ; then
+    echo "usage: $0 <il> <ana> <mdf> <ng> <dataset_path> <ldc_dir>"
+    echo "  eg : $0 il9 char_wb 3 3 path/to/annotations path/to/labeled_text_data/"
+    exit
+fi
+
+il=${1}         # choice: il9, il10, hin, zul
+ana=${2}        # analyzer: char_wb or word
+mdf=${3}        # min document frequency
+ng=${4}         # ngram
 ########################## Configure these according to the IL ##########################
-#enter path containing the annotations
-
-#HINDI dataset
-# dataset_path=/mnt/matylda2/data/LORELEI/LDC2017E88_LORELEI_Hindi_Speech_Database/HIN_EVAL_20170601/HIN_EVAL_20170601/
-# ldc_dir=/mnt/matylda4/kesiraju/code/lorelei/LDC_processed/subset_no_HIN/
-# ils=("hin")
-
-#ZULU dataset
-# dataset_path=/mnt/matylda2/data/LORELEI/LDC2017E93_LORELEI_Zulu_Speech_Database/ZUL_EVAL_20170920/ZUL_EVAL_20170920/
-# ldc_dir=/mnt/matylda3/xsagar00/LORELI_LDC/lorelei/ZUL/subset_no_ZUL/
-# ils=("zul")
-
-# IL10 dataset
-# dataset_path=/mnt/matylda3/xsagar00/LORELI_LDC/lorelei/IL10/Unsequestered_IL10_SetE_SpeechAnnotation_20180914/
-# ldc_dir=/mnt/matylda3/xsagar00/LORELI_LDC/lorelei/IL10/subset_no_IL10/
-# ils=("il10")
+dataset_path=${5}      # path to annotations for given language pack
+ldc_dir=${6}           # path to labeled English text jason file
+########################################################################################
 
 
 asr_out=("asr_1_out" "asr_2_out")
-mdf=3
 analyzers=("char")
-ana=char_wb
-ng=3
-########################################################################################
 
-root=/mnt/matylda3/xsagar00/LORELI_LDC
-script_p=lorelei/src
 
 for il in "${ils[@]}"; do
 
@@ -78,16 +81,5 @@ for il in "${ils[@]}"; do
     grep -v ^-1 ${labeled_out_dir}/all_text.txt.themes  > ${labeled_out_dir}/all_text.txt.themes.pruned
     cat ${labeled_out_dir}/all_text.txt.themes.pruned | cut -d% -f1 > ${labeled_out_dir}/all_text.themes.pruned
     cat ${labeled_out_dir}/all_text.txt.themes.pruned | cut -d% -f2- > ${labeled_out_dir}/all_text.txt.pruned
-
-
-    echo "----------------------------------------------"
-    echo "Baseline classification systems on ENG SF data"
-    echo "----------------------------------------------"
-
-
-    text_f=${labeled_out_dir}/all_text.txt.pruned
-    label_f=${labeled_out_dir}/all_text.themes.pruned
-    themes_txt=${labeled_out_dir}/themes.txt
-    python ${root}/${script_p}/baseline_ENG_SF.py ${text_f} ${label_f} ${themes_txt} ${labeled_out_dir}/ -ana ${ana} -ng ${ng} -mdf ${mdf}
 
 done

@@ -1,18 +1,24 @@
 #!/bin/bash
 
-
 # Does following task:
-        (i) Generate best vocabulary from labeled English text data
-        (ii) Finds the best alpha for each topic/label
-        (iii) Generates bash file to generate features for parallel text
-        (iv) Generates bash file to compute final average precision scores for the given test data.
-        (v) Display the score for all N (vocab size for each label) at once.
+#         (i)     Generate best vocabulary from each class of labeled English text data
+#         (ii)    Finds the best alpha for each topic/label
+#         (iii)   Generates bash file to generate features for parallel text
+#         (iv)    Generates bash file to compute final average precision scores for the given test data.
+#         (v)     Display the score for all N (vocab size for each label) at once.
 
-N=('100' '200' '400' '600' '800' '1000' '1200' '1400' '1600' '1800' '2000')
+if [ $# -ne 5 ] ; then
+    echo "usage: $0 <il> <analyzer> <ngram tokens> <N> <root>"
+    echo "  eg : $0 il9 char_wb 3 200 /my/root/directory/cross_ling_topic_id/"
+    exit
+fi
+
+
 il=${1}     # il: il9, il10, zul, hin
 ana=${2}    # analyzer: char_wb or word
 ng=${3}     # ngram
-root=/mnt/matylda3/xsagar00/LORELI_LDC
+N=${4}      # vocab size for each class eg. 100, 200 etc
+root=${5}   # your root directory: /my/root/directory/cross_ling_topic_id/
 
 rm -rf ${root}/expt_tfidf/${il}/char/all_Score_one_file.txt
 rm -rf ${root}/expt_tfidf/${il}/generate_vocabs_blade

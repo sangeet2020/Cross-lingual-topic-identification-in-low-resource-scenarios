@@ -5,7 +5,7 @@
 # e-mail : 15uec053[at]lnmiit[dot]ac[dot]in
 
 '''
-Given English text, remove ilegal characters like characters from other languages
+Given English text, remove illegal characters like characters from other languages.
 '''
 
 import os

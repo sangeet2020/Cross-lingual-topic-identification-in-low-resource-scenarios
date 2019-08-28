@@ -5,7 +5,7 @@
 # e-mail : 15uec053[at]lnmiit[dot]ac[dot]in
 
 """
-Convert all sentences of one documnent into single sentences.
+Combine all sentences of one documnent into separate sentences.
 """
 
 import codecs
