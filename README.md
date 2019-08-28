@@ -92,8 +92,4 @@ Task performed:
 
 ## System block diagram
 
-<<<<<<< HEAD
 ![alt text](https://github.com/sangeet2020/Cross-lingual-topic-identification-in-low-resource-scenarios/blob/development/Block%20Diagram/system_block_diagram.png)
-=======
-![alt text](https://github.com/sangeet2020/Cross-lingual-topic-identification-in-low-resource-scenarios/blob/development/Block%20Diagram/system_block_diagram.png)
->>>>>>> e4f9aeeaae9f8cc7352407c14e79f9b20b1aaf0c
