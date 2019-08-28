@@ -2,6 +2,10 @@
 
 The objective is to develop systems for cross-lingual topic ID without relying on machine translation systems and bilingual word embeddings. In other words, given parallel text between a source (eg. English) and target language, and some set of topic labeled documents in a source language, the goal is to predict topic labels for test documents from the target language.
 
+## System block diagram
+
+![alt text](https://github.com/sangeet2020/Cross-lingual-topic-identification-in-low-resource-scenarios/blob/development/Block%20Diagram/system_block_diagram.png)
+
 ## Important Note
 This project is still in the development phase. NOT all codes can be made public at this stage.
 
@@ -51,6 +55,7 @@ python src/train_clf_batchwise.py --help
 ### 1. Pre-processing
 
     bash wrapper_preProcess.sh
+
  Task performed:
 *   Generate ground truth annotations
 *   Preparing ground truth of the annotations
@@ -59,7 +64,7 @@ python src/train_clf_batchwise.py --help
 *   Eliminate out-of-domain docs
 
 ### 2. Baseline classification using theme-specific tokens
-    bash wrapper_baseline_best_vacabs.sh
+    bash wrapper_baseline_best_vocabs.sh
 
 Task performed:
 * Generate the best vocabulary from each class of labeled English text data
@@ -85,11 +90,3 @@ Task performed:
 * Apply transformation from IL space to English space
 * Predict topics for each document
 * Compute average precision scores
-
-
-
-
-
-## System block diagram
-
-![alt text](https://github.com/sangeet2020/Cross-lingual-topic-identification-in-low-resource-scenarios/blob/development/Block%20Diagram/system_block_diagram.png)
