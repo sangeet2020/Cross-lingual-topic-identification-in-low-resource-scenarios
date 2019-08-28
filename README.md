@@ -3,7 +3,7 @@
 The objective is to develop systems for cross-lingual topic ID without relying on machine translation systems and bilingual word embeddings. In other words, given parallel text between a source (eg. English) and target language, and some set of topic labeled documents in a source language, the goal is to predict topic labels for test documents from the target language.
 
 ## Important Note
-This project is still in the development stage. NOT all codes can be made public at this stage.
+This project is still in the development phase. NOT all codes can be made public at this stage.
 
 
 ## Requirements
@@ -92,4 +92,4 @@ Task performed:
 
 ## System block diagram
 
-![alt text](https://github.com/sangeet2020/Cross-lingual-topic-identification-in-low-resource-scenarios/blob/development/system_block_diagram.png)
+![alt text](https://github.com/sangeet2020/Cross-lingual-topic-identification-in-low-resource-scenarios/blob/development/Block%20Diagram/system_block_diagram.png)
