@@ -59,7 +59,7 @@ python src/train_clf_batchwise.py --help
 *   Eliminate out-of-domain docs
 
 ### 2. Baseline classification using theme-specific tokens
-    wrapper_baseline_best_vacabs.sh
+    bash wrapper_baseline_best_vacabs.sh
 
 Task performed:
 * Generate the best vocabulary from each class of labeled English text data
@@ -69,15 +69,15 @@ Task performed:
 * Display the average precision score for all N (vocab size for each label)
 
 ### 3. Feature generation
-    wrapper_feats_gen.sh
+    bash wrapper_feats_gen.sh
 Performs feature extraction on parallel text data and labeled English text data
 
 ### 4. Learning transformation
-    wrapper_learn_transformation.sh
+    bash wrapper_learn_transformation.sh
 Generates bash files to learn transformation and submit jobs as well to GPUs
 
 ### 5. Compute average precision score for given text documents
-    wrapper_final_scores_generator_new_doc_level.sh
+    bash wrapper_final_scores_generator_new_doc_level.sh
 Task performed:
 * Training English Classifier
 * Combine all sentences of one document into separate sentences.
